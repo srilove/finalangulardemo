@@ -1,0 +1,120 @@
+<div>
+    <h1 class="col-lg-6 text-primary bg-info mt-5 text-center p-2 center"> template driven  Form</h1>
+  </div>
+  <div class="container">
+  
+    <form >
+  
+      <div class="row" ngModelGroup #tmd="ngModelGroup">
+  
+        <div class="col-lg-6">
+  
+          <label class="mt-5">First Name</label>
+          <input type="text" class="form-control mt-2" placeholder="First Name" ngModel name="fname" #fn="ngModel"
+            required minlength="5" pattern="(^[a-zA-Z ]+$)" >
+  
+          <p class="mt-2" class="err-msg" *ngIf="fn.touched && fn.errors?.['required']"> user name required</p>
+  
+          <p class="mt-2" class="err-msg" *ngIf="fn.touched && fn.errors?.['minlength']"> user name contsin 5 chraacter
+          </p>
+  
+          <p class="mt-2" class="err-msg" *ngIf="fn.touched && fn.errors?.['pattern']"> only charecter are allowed </p>
+  
+  
+          <!-- <p class="mt-2" class="err-msg" *ngIf="fn.touched && fn.errors?.['pattern()']"> user name contsin 5 chraacter</p> -->
+  
+  
+  
+        </div>
+        <div class="col-lg-6">
+  
+          <label class="mt-5">Last Name</label>
+          <input type="text" class="form-control mt-2" placeholder="Last Name" ngModel name="lname" #ln="ngModel" required
+            minlength="5">
+  
+  
+        </div>
+  
+  
+        <div class="col-lg-12">
+          <label class="mt-5">Adress</label>
+          <textarea cols="150" rows="2" placeholder="Describe yourself here" class="form-control mt-3" ngModel
+            name="address" #ad="ngModel" required>
+  
+            </textarea>
+          <p class="mt-2 text-danger" *ngIf="ad.touched && ad.errors?.['required']"> please enter Adrees</p>
+        </div>
+  
+  
+  
+  
+      <div class="row">
+        <div class="col-lg-4">
+          <label class="mt-5">city</label>
+          <input type="text" class="form-control mt-2" placeholder="Enter city" ngModel name="city" #c="ngModel" required>
+  
+        </div>
+        <div class="col-lg-4">
+          <label class="mt-5">state</label>
+          <input type="text" class="form-control mt-2" placeholder="Enter state" ngModel name="state" #S="ngModel"
+            required>
+  
+        </div>
+  
+        <div class="col-lg-4">
+          <label class="mt-5">Pincode</label>
+          <input type="text" class="form-control mt-2" placeholder="Enter pincode" ngModel name="pincode" #pin="ngModel"
+            required minlength="6">
+  
+          <p class="mt-2" class="err-msg" *ngIf="pin.touched && pin.errors?.['minlength']"> Pincode required atlest 6
+            chraacter</p>
+  
+        </div>
+  
+  
+      </div>
+  
+      <div class="col-lg-12">
+        <label class="mt-5">Phone Number</label>
+        <input type="text" placeholder="Enter phonenuber" class="form-control mt-3" ngModel name="phonenumber"
+          #phn="ngModel" required minlength="10" pattern="(^[0-9]*$)">
+  
+        <p class="mt-2" class="err-msg" *ngIf="phn.touched && phn.errors?.['required']"> please enter phone number</p>
+        <p class="mt-2" class="err-msg" *ngIf="phn.touched && phn.errors?.['pattern']"> invalid number</p>
+        <p class="mt-2" class="err-msg" *ngIf="phn.touched && phn.errors?.['minlength']"> 10 digit mobile number</p>
+      </div>
+  
+  
+      <div class="row">
+  
+        <div class="col-lg-6">
+  
+          <label class="mt-5">Email Adress</label>
+          <input type="email" class="form-control mt-2" placeholder="Enter email" ngModel name="email" #e="ngModel"
+            required email>
+          <p class="mt-2" class="err-msg" *ngIf="e.touched && e.errors?.['email']"> enter vaild email </p>
+  
+        </div>
+        <div class="col-lg-6">
+  
+          <label class="mt-5">Password</label>
+          <input type="text" class="form-control mt-2" placeholder="Enter Password" ngModel name="Password" #p="ngModel"
+            required>
+          <p class="mt-2" class="err-msg" *ngIf="p.touched && p.errors?.['required']"> please enter Password</p>
+  
+  
+        </div>
+  
+      </div>
+  
+    </div>
+  
+      <button class="btn btn-info cen mt-5 text-white" (click)="submit(tmd)"> Submit</button>
+  
+    
+  
+    </form>
+  
+    <!-- <div>{{myForm.value |json}}</div> -->
+    <div>{{tmd.value |json}}</div>
+  

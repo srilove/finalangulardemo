@@ -1,0 +1,99 @@
+<div>
+  <h1 class="col-lg-6 text-primary bg-info mt-5 text-center p-2 center"> reactive Form</h1>
+</div>
+  <div class="container">
+  
+    <form  [formGroup]="login" (ngSubmit)="onSubmit()">    <!-- convert  reactoive form -->
+  
+      <div class="row">
+  
+        <div class="col-lg-6">
+  
+          <label class="mt-5">First Name</label>
+         
+          <input type="text" class="form-control mt-2" placeholder="First Name" formControlName="fname">
+
+
+
+            <div class="text-danger" *ngIf="submitted && login.controls.fname.invalid">first name is required</div>
+            <div class="text-danger" *ngIf="login.controls.fname.touched && login.controls.fname.invalid">mimum length 8 charecter</div>
+            <div class="text-danger" *ngIf="login.controls.fname.touched && login.controls.fname.invalid">onlt text allow</div>
+
+        </div>
+
+        <div class="col-lg-6">
+  
+          <label class="mt-5">Last Name</label>
+          <input type="text" class="form-control mt-2" placeholder="Last Name" formControlName="lname"
+            minlength="5">
+            <div class="text-danger" *ngIf="submitted && login.controls.lname.invalid">last name is required</div>
+  
+  
+        </div>
+
+      </div>
+
+      <div class="col-lg-12">
+        <label class="mt-5">Adress</label>
+        <textarea cols="150" rows="2" placeholder="Describe yourself here" class="form-control mt-3" formControlName="address">
+         
+          </textarea>
+          <div class="text-danger" *ngIf="submitted && login.controls.address.invalid">Aadrress is required</div>
+      </div>
+  
+      <div class="row">
+        <div class="col-lg-4">
+          <label class="mt-5">city</label>
+          <input type="text" class="form-control mt-2" placeholder="Enter city" formControlName="city">
+          <div class="text-danger" *ngIf="submitted && login.controls.city.invalid">city is required</div>
+        </div>
+        <div class="col-lg-4">
+          <label class="mt-5">state</label>
+          <input type="text" class="form-control mt-2" placeholder="Enter state" formControlName="state">
+          <div class="text-danger" *ngIf="submitted && login.controls.state.invalid">state is required</div>
+        </div>
+  
+        <div class="col-lg-4">
+          <label class="mt-5">Pincode</label>
+          <input type="text" class="form-control mt-2" placeholder="Enter pincode" formControlName="pincode" >   
+          <div class="text-danger" *ngIf="submitted && login.controls.pincode.invalid">pincode is required</div>
+        </div>
+        
+      </div>
+  
+      <div class="col-lg-12">
+        <label class="mt-5">Phone Number</label>
+        <input type="text" placeholder="Enter phonenuber" class="form-control mt-3" formControlName="phone">
+  
+      </div>
+  
+  
+      <div class="row">
+  
+        <div class="col-lg-6">
+  
+          <label class="mt-5">Email Adress</label>
+          <input type="email" class="form-control mt-2" placeholder="Enter email" formControlName="email">
+          <div class="text-danger" *ngIf="submitted && login.controls.email.invalid">enter valid email</div>
+          
+         
+        </div>
+        <div class="col-lg-6">
+  
+          <label class="mt-5">Password</label>
+          <input type="text" class="form-control mt-2" placeholder="Enter Password" formControlName="password">
+          <div class="text-danger" *ngIf="submitted && login.controls.password.invalid">passowrd is required</div>
+        
+  
+        </div>
+  
+      </div>
+  
+  
+  
+      <button class="btn btn-info cen mt-5 text-white"> Submit</button>
+  
+  
+  
+    </form>
+
